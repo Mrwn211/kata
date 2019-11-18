@@ -1,28 +1,29 @@
 const isValidWalk = walk => {
   let walkerPos = {
-    x: 5,
-    y: 5
-  }
-  if (walk.length === 10) {
-    walk.foreEach(elem => {
+    x: 0,
+    y: 0
+  };
+  while (walk.length === 10) {
+    walk.map(elem => {
       switch (elem) {
-        case 'n':
-          walkerPos.x += 1;
+        case "n":
+          walkerPos.x++;
           break;
-        case 's':
-          walkerPos.x -= 1;
+        case "s":
+          walkerPos.x--;
           break;
-        case 'w':
-          walkerPos.y += 1;
+        case "w":
+          walkerPos.y++;
           break;
-        case 'e':
-          walkerPos.y -= 1;
-          break
-        default: return false
+        case "e":
+          walkerPos.y--;
+          break;
+        default:
+          return false;
       }
-    })
-    if (walkerPos.x === 5 && walkerPos.y === 5) {
-      return true
+    });
+    if (walkerPos.x == 0 && walkerPos.y == 0) {
+      return true;
     } else return false;
-  } else return false;
-}
+  }
+};
